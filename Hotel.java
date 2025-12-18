@@ -79,7 +79,7 @@ public class Hotel {
     public int addGroupOfGuests(Guest[] guests){
         int count = 0;
         for (int i = 0; i < numberOfRooms; i++){
-            if (Rooms[i] == null){
+            if (Rooms[i] == null && count < guests.length){
                 Rooms[i] = guests[count];
                 count++;
             }
@@ -89,7 +89,7 @@ public class Hotel {
 
     public int addGroupOfGuests(Guest[] guests, int start_room){
         int count = 0;
-        if (start_room <= numberOfRooms){
+        if (start_room <= numberOfRooms && start_room > 0){
             for (int i = start_room - 1; i < numberOfRooms; i++){
                 if (Rooms[i] == null && count < guests.length){
                     Rooms[i] = guests[count];
@@ -105,7 +105,7 @@ public class Hotel {
     }
 
     public void deleteGuest(int n){
-        if (n <= numberOfRooms){
+        if (n <= numberOfRooms && n > 0){
             Rooms[n - 1] = null;
         }
         else{
@@ -159,7 +159,7 @@ public class Hotel {
     }
 
     public void addGuestWithPet(int room_idx, Guest guest){
-        if (room_idx <= numberOfRooms){
+        if (room_idx <= numberOfRooms && room_idx > 0){
             if (room_idx % 2 == 0){
                 Rooms[room_idx - 1] = guest;
             }
@@ -173,7 +173,7 @@ public class Hotel {
         int added_guests_counter = 0;
 
         for (int i = 1; i < numberOfRooms - 1; i += 2){
-            if (added_guests_counter < guests.length){
+            if (added_guests_counter < guests.length && Rooms[i] == null){
                 Rooms[i] = guests[added_guests_counter];
                 added_guests_counter++;
             }
