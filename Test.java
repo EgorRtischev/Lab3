@@ -1,8 +1,6 @@
 import java.io.PrintStream;
-import java.util.Scanner;
 
 public class Test {
-    public static Scanner in = new Scanner(System.in);
     public static PrintStream out = System.out;
     public static void main(String[] args) {
         Hotel hotel = new Hotel(10);
@@ -81,3 +79,4 @@ public class Test {
         hotel.printRoomList();
     }
 }
+
